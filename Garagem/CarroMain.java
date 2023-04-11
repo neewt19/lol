@@ -17,7 +17,6 @@ public class CarroMain {
         c1.setAno(Integer.parseInt(JOptionPane.showInputDialog("Diga o ano:")));
         c1.setCombustivel(Double.parseDouble(JOptionPane.showInputDialog("Quantos litros de combustível tem no carro?")));
         c1.setKmInicial(Double.parseDouble(JOptionPane.showInputDialog("Quantos km rodados?")));
-        c1.abastecer(Double.parseDouble(JOptionPane.showInputDialog("Quantos litros de combustível deseja abastecer?")));
 
         carros.add(c1);
 
@@ -62,7 +61,7 @@ public class CarroMain {
                 case 3 -> {
                     if (carros.size() > 0){
                         for (int i = 0; i < carros.size(); i++) {
-                            System.out.printf("[%d] %s \n", i + 1, carros.get(i).getModelo());
+                            System.out.printf("[%d] %s %s \n", i + 1,carros.get(i).getMarca() , carros.get(i).getModelo());
                         }
                     }else {
                         System.out.println("Não há carros na garagem");
@@ -76,8 +75,13 @@ public class CarroMain {
                         }
                         int escolha = Integer.parseInt(JOptionPane.showInputDialog("Escolha um carro para usar"));
                         double kmfin = Double.parseDouble(JOptionPane.showInputDialog("Quantos km vc vai rodar?"));
-                        carros.get(escolha-1).setKmInicial(carros.get(escolha-1).getKmInicial() + kmfin);
-                        System.out.println("Seu carro já andou: "+ carros.get(escolha-1).getKmInicial()+" Km");
+
+                        if (carros.get(escolha-1).getCombustivel() <=0){
+                            System.out.println("Não tem combustível");
+                        }else {
+                            carros.get(escolha-1).setKmInicial(carros.get(escolha-1).getKmInicial() + kmfin);
+                            System.out.println("Seu carro já andou: "+ carros.get(escolha-1).getKmInicial()+" Km");
+                        }
                     }else {
                         System.out.println("Não há carros na garagem");
                     }
@@ -88,8 +92,7 @@ public class CarroMain {
                             System.out.printf("[%d] %s \n", i + 1, carros.get(i).getModelo());
                         }
                         int escolha = Integer.parseInt(JOptionPane.showInputDialog("Escolha um carro para usar"));
-                        double combusfin = Double.parseDouble(JOptionPane.showInputDialog("Quantos litros vai colocar?"));
-                        carros.get(escolha-1).setCombustivel(carros.get(escolha-1).getCombustivel() + combusfin);
+                        carros.get(escolha-1).abastecer(Double.parseDouble(JOptionPane.showInputDialog("Quantos litros vai colocar?")));
                         System.out.println("Seu carro tem "+ carros.get(escolha-1).getCombustivel()+" litros");
                     }else {
                         System.out.println("Não há carros na garagem");
