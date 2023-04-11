@@ -73,7 +73,7 @@ public class CarroMain {
                         for (int i = 0; i < carros.size(); i++) {
                             System.out.printf("[%d] %s \n", i + 1, carros.get(i).getModelo());
                         }
-                        int escolha = Integer.parseInt(JOptionPane.showInputDialog("Escolha um carro para usar"));
+                        int escolha = Integer.parseInt(JOptionPane.showInputDialog("Escolha um carro para abastecer"));
                         double kmfin = Double.parseDouble(JOptionPane.showInputDialog("Quantos km vc vai rodar?"));
 
                         if (carros.get(escolha-1).getCombustivel() <=0){
