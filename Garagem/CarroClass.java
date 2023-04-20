@@ -6,6 +6,7 @@ public class CarroClass {
     private int ano;
     private double combustivel;
     private double kmInicial;
+    private String placa;
 
     public String getMarca() {
         return marca;
@@ -42,13 +43,22 @@ public class CarroClass {
     public double getKmInicial() {
         return kmInicial;
     }
-    public void setKmInicial(double kmInicial) {
+    public double setKmInicial(double kmInicial) {
         this.kmInicial = kmInicial;
+        return kmInicial;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
     public void abastecer(double quantidade) {
         combustivel += quantidade;
     }
+
 
     public String detalhes() {
         return String.format("Novo carro adicionado: %s // %s // %d // %.2f litros de combustível // %.2f km rodados",
