@@ -37,7 +37,7 @@ public class CarroMain {
                     String marc = JOptionPane.showInputDialog("Diga a marca do seu carro");
                     while (marc == null){
                         System.out.println("Marca inválida");
-                        marc = JOptionPane.showInputDialog("Diga a marca do seu carro");
+                        break;
                     }
                     while (!patternString.matcher(marc).matches()){
                         System.out.println("Marca inválida");
